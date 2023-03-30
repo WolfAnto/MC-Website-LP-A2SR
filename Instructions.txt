@@ -1,0 +1,2 @@
+docker build -t my-apache2-image .     (pour build le Dockerfile et créer une image)
+Modifier le tetris.yaml et mettre le nom de l'image
