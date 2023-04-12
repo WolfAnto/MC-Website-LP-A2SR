@@ -23,29 +23,10 @@ kind: Service
 metadata:
   name: tetris
 spec:
-  type: NodePort
   selector:
     app: tetris
   ports:
   - name: http
     port: 8080
     targetPort: 8080
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: tetris
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - host: tetris.local
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: tetris
-            port:
-              name: http
+  type: LoadBalancer
